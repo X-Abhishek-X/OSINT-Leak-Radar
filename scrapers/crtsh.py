@@ -45,7 +45,7 @@ async def enumerate_subdomains(domain: str) -> list[dict]:
         subdomains = await fetch_crtsh(session, domain)
 
     results = []
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()
     for sub in subdomains:
         ip = await loop.run_in_executor(None, resolve_host, sub)
         results.append({"subdomain": sub, "ip": ip, "live": ip is not None})

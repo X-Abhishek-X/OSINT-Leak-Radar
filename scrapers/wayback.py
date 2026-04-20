@@ -1,6 +1,5 @@
 import asyncio
 import aiohttp
-import requests
 
 
 async def _fetch_url(session: aiohttp.ClientSession, url: str, timeout: int) -> list:
