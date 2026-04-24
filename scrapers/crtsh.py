@@ -11,7 +11,7 @@ async def fetch_crtsh(session: aiohttp.ClientSession, domain: str) -> list[str]:
     """
     url = f"https://crt.sh/?q=%.{domain}&output=json"
     try:
-        async with session.get(url, timeout=aiohttp.ClientTimeout(total=20)) as resp:
+        async with session.get(url, timeout=aiohttp.ClientTimeout(total=25)) as resp:
             if resp.status != 200:
                 return []
             data = await resp.json(content_type=None)
